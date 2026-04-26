@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-// Data produk hardcoded (sama seperti di list)
 const products = [
   {
     id: 1,
@@ -106,7 +105,6 @@ const ProductDetailPage = () => {
   const hasSale = product.hasSale && product.salePrice;
 
   const addToCart = () => {
-    // Ambil cart dari localStorage
     const existingCart = JSON.parse(localStorage.getItem("cart") || "[]");
     const existingItem = existingCart.find((item) => item.id === product.id);
     if (existingItem) {

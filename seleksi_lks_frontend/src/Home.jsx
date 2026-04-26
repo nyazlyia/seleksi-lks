@@ -1,4 +1,3 @@
-// Home.jsx
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -10,7 +9,6 @@ const Home = () => {
   };
   const [cartCount, setCartCount] = useState(getCartCount);
 
-  // Data produk
   const products = [
     {
       id: 1,
@@ -72,20 +70,17 @@ const Home = () => {
     },
   ];
 
-  // Fungsi untuk update jumlah cart dari localStorage
   const updateCartCount = () => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const total = cart.reduce((sum, item) => sum + item.quantity, 0);
     setCartCount(total);
   };
 
-  // Update saat komponen mount dan saat window mendapat fokus (kembali dari halaman lain)
   useEffect(() => {
     window.addEventListener("focus", updateCartCount);
     return () => window.removeEventListener("focus", updateCartCount);
   }, []);
 
-  // Handle search submit
   const handleSearch = (e) => {
     e.preventDefault();
     const query = e.target.search.value.trim();
@@ -96,7 +91,6 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* TOP BAR */}
       <div className="text-sm border-b border-gray-200 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-10">
@@ -152,7 +146,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* NAVBAR */}
       <nav className="bg-white sticky top-0 z-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
@@ -228,9 +221,7 @@ const Home = () => {
         </div>
       </nav>
 
-      {/* MAIN CONTENT */}
       <main className="mx-auto px-8 bg-gray-50 sm:px-6 lg:px-16 py-8">
-        {/* Header image */}
         <div>
           <img
             src="/src/assets/kucing.jpg"
@@ -239,7 +230,6 @@ const Home = () => {
           />
         </div>
 
-        {/* POPULAR PRODUCTS */}
         <div className="mb-16">
           <h2 className="text-2xl md:text-3xl font-bold m-8 text-center text-gray-900 tracking-tight">
             POPULAR PRODUCTS

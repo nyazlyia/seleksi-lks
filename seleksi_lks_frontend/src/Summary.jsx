@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const SummaryPage = () => {
-  // Generate nomor order random
   const [orderNumber] = useState(
     () =>
       `ORD-${Math.floor(Math.random() * 1000000)}-${Date.now().toString().slice(-4)}`,
   );
 
   useEffect(() => {
-    // Kosongkan keranjang setelah checkout
     localStorage.removeItem("cart");
   }, []);
 

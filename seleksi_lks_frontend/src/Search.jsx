@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 
-// Data produk hardcoded (sama seperti di list)
 const products = [
   {
     id: 1,

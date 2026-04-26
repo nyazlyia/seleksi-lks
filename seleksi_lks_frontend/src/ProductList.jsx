@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-// Data produk hardcoded di dalam halaman
 const products = [
   {
     id: 1,
@@ -85,7 +84,6 @@ const ProductListPage = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-3xl font-bold text-gray-900 mb-6">PRODUCTS</h1>
-      {/* Filter kategori */}
       <div className="flex flex-wrap gap-3 mb-8">
         {categories.map((cat) => (
           <button
@@ -101,7 +99,7 @@ const ProductListPage = () => {
           </button>
         ))}
       </div>
-      {/* Grid produk */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredProducts.map((product) => (
           <div
